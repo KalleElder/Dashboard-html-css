@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Crypto Dashboard</title>
-  <meta name="description" content="Responsiv krypto-dashboard i HTML/CSS med flera coins, grafer, heatmap och transaktioner." />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="description" content="Responsiv krypto-dashboard i HTML/CSS med flera coins, grafer, heatmap och transaktioner.">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <!-- Hoppa direkt till innehåll med tangentbordet -->
   <a class="skip-link" href="#main">Hoppa till innehåll</a>
 
-  <!-- TOP / NAV -->
+  <!-- Top / Nav -->
   <header>
     <div class="container topbar">
-
-      <!-- Logotyp + namn (vänster) -->
       <a class="brand" href="#top" aria-label="Startsida">
         <span class="logo" aria-hidden="true">Ð</span>
         <span>Crypto Dashboard</span>
       </a>
 
-      <!-- Meny (höger). Använder ankare som scrollar till sektioner. -->
+      <!-- Menyn ligger till höger via CSS (.brand { margin-right:auto }) -->
       <nav aria-label="Huvudnavigation">
-        <ul role="list">
+        <ul>
           <li><a href="#markets">Markets</a></li>
           <li><a href="#heatmap">Heatmap</a></li>
           <li><a href="#wallet">Wallet</a></li>
@@ -36,23 +33,22 @@
 
   <main id="main">
 
-    <!-- HERO (intro-sektion med CTA) -->
+    <!-- Hero -->
     <section id="top" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
           <h1>Få koll på dina krypto-tillgångar</h1>
-          <p class="muted">Futuristiskt UI i ren HTML/CSS med demo-data.</p>
+          <p class="muted">Futuristisk UI, rena HTML/CSS-grafer och ankarlänkar.</p>
           <div class="hero-actions">
             <a class="btn" href="#markets">Utforska Markets</a>
             <a class="btn secondary" href="#create">Skapa transaktion</a>
           </div>
         </div>
 
-        <!-- övre kort  -->
         <div class="hero-cards">
-
-          <!-- BTC -->
+          <!-- Mini highlight cards (BTC) -->
           <article class="mini highlight">
+            <h3 class="card-title" style="margin:0 0 .25rem 0;">Bitcoin (BTC)</h3>
             <div class="mini-head">
               <div class="tag btc">
                 <img src="assets/icons/bitcoin.svg" alt="" aria-hidden="true">
@@ -67,15 +63,16 @@
                   <stop offset="0%" stop-color="var(--accent-2)" stop-opacity=".55"/>
                   <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
                 </linearGradient></defs>
-                <path d="M0,28 L10,26 L20,22 L30,24 L40,20 L50,18 L60,16 L70,14 L80,18 L90,12 L100,10 L100,36 L0,36 Z" fill="url(#g-btc)"/>
+                <path d="M0,28 L10,26 L20,22 L30,24 L40,20 L50,18 L60,16 L70,14 L80,18 L90,12 L100,10 L100,36 L0,36 Z" fill="url(#g-btc)"></path>
                 <polyline points="0,28 10,26 20,22 30,24 40,20 50,18 60,16 70,14 80,18 90,12 100,10"
-                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"></polyline>
               </svg>
             </div>
           </article>
 
-          <!-- ETH -->
+          <!-- Mini highlight cards (ETH) -->
           <article class="mini">
+            <h3 class="card-title" style="margin:0 0 .25rem 0;">Ethereum (ETH)</h3>
             <div class="mini-head">
               <div class="tag eth">
                 <img src="assets/icons/ethereum.svg" alt="" aria-hidden="true">
@@ -90,9 +87,9 @@
                   <stop offset="0%" stop-color="var(--accent-2)" stop-opacity=".55"/>
                   <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
                 </linearGradient></defs>
-                <path d="M0,29 L10,27 L20,23 L30,25 L40,22 L50,17 L60,19 L70,15 L80,17 L90,13 L100,11 L100,36 L0,36 Z" fill="url(#g-eth)"/>
+                <path d="M0,29 L10,27 L20,23 L30,25 L40,22 L50,17 L60,19 L70,15 L80,17 L90,13 L100,11 L100,36 L0,36 Z" fill="url(#g-eth)"></path>
                 <polyline points="0,29 10,27 20,23 30,25 40,22 50,17 60,19 70,15 80,17 90,13 100,11"
-                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"></polyline>
               </svg>
             </div>
           </article>
@@ -100,7 +97,7 @@
       </div>
     </section>
 
-    <!-- MARKETS (flera coins) -->
+    <!-- Markets -->
     <section id="markets" class="container stack">
       <div class="section-title">
         <h2>Markets</h2>
@@ -108,13 +105,15 @@
       </div>
 
       <div class="markets-grid">
-
         <!-- BTC -->
         <article class="coin">
           <header class="coin-head">
             <div class="coin-id">
               <div class="icon btc"><img src="assets/icons/bitcoin.svg" alt="Bitcoin logo"></div>
-              <div><strong>Bitcoin</strong><small class="muted">BTC</small></div>
+              <div>
+                <h3 class="coin-title" style="margin:0">Bitcoin</h3>
+                <small class="muted">BTC</small>
+              </div>
             </div>
             <span class="chip up">+3.1%</span>
           </header>
@@ -127,9 +126,9 @@
                   <stop offset="0%" stop-color="var(--accent-2)" stop-opacity=".55"/>
                   <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
                 </linearGradient></defs>
-                <path d="M0,30 L8,28 L16,24 L24,26 L32,22 L40,20 L48,18 L56,16 L64,20 L72,14 L80,12 L88,15 L96,10 L100,8 L100,40 L0,40 Z" fill="url(#g-btc2)"/>
+                <path d="M0,30 L8,28 L16,24 L24,26 L32,22 L40,20 L48,18 L56,16 L64,20 L72,14 L80,12 L88,15 L96,10 L100,8 L100,40 L0,40 Z" fill="url(#g-btc2)"></path>
                 <polyline points="0,30 8,28 16,24 24,26 32,22 40,20 48,18 56,16 64,20 72,14 80,12 88,15 96,10 100,8"
-                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"></polyline>
               </svg>
             </div>
           </div>
@@ -143,7 +142,10 @@
           <header class="coin-head">
             <div class="coin-id">
               <div class="icon eth"><img src="assets/icons/ethereum.svg" alt="Ethereum logo"></div>
-              <div><strong>Ethereum</strong><small class="muted">ETH</small></div>
+              <div>
+                <h3 class="coin-title" style="margin:0">Ethereum</h3>
+                <small class="muted">ETH</small>
+              </div>
             </div>
             <span class="chip up">+2.4%</span>
           </header>
@@ -156,9 +158,9 @@
                   <stop offset="0%" stop-color="var(--accent-2)" stop-opacity=".55"/>
                   <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
                 </linearGradient></defs>
-                <path d="M0,31 L10,29 L20,25 L30,27 L40,24 L50,19 L60,21 L70,16 L80,18 L90,14 L100,12 L100,40 L0,40 Z" fill="url(#g-eth2)"/>
+                <path d="M0,31 L10,29 L20,25 L30,27 L40,24 L50,19 L60,21 L70,16 L80,18 L90,14 L100,12 L100,40 L0,40 Z" fill="url(#g-eth2)"></path>
                 <polyline points="0,31 10,29 20,25 30,27 40,24 50,19 60,21 70,16 80,18 90,14 100,12"
-                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"></polyline>
               </svg>
             </div>
           </div>
@@ -172,7 +174,10 @@
           <header class="coin-head">
             <div class="coin-id">
               <div class="icon sol"><img src="assets/icons/solana.svg" alt="Solana logo"></div>
-              <div><strong>Solana</strong><small class="muted">SOL</small></div>
+              <div>
+                <h3 class="coin-title" style="margin:0">Solana</h3>
+                <small class="muted">SOL</small>
+              </div>
             </div>
             <span class="chip up">+5.8%</span>
           </header>
@@ -185,9 +190,9 @@
                   <stop offset="0%" stop-color="var(--accent-2)" stop-opacity=".55"/>
                   <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
                 </linearGradient></defs>
-                <path d="M0,34 L10,33 L20,29 L30,31 L40,25 L50,23 L60,20 L70,18 L80,22 L90,17 L100,14 L100,40 L0,40 Z" fill="url(#g-sol)"/>
+                <path d="M0,34 L10,33 L20,29 L30,31 L40,25 L50,23 L60,20 L70,18 L80,22 L90,17 L100,14 L100,40 L0,40 Z" fill="url(#g-sol)"></path>
                 <polyline points="0,34 10,33 20,29 30,31 40,25 50,23 60,20 70,18 80,22 90,17 100,14"
-                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"></polyline>
               </svg>
             </div>
           </div>
@@ -201,7 +206,10 @@
           <header class="coin-head">
             <div class="coin-id">
               <div class="icon ada"><img src="assets/icons/cardano.svg" alt="Cardano logo"></div>
-              <div><strong>Cardano</strong><small class="muted">ADA</small></div>
+              <div>
+                <h3 class="coin-title" style="margin:0">Cardano</h3>
+                <small class="muted">ADA</small>
+              </div>
             </div>
             <span class="chip down">−1.2%</span>
           </header>
@@ -214,9 +222,9 @@
                   <stop offset="0%" stop-color="var(--accent-2)" stop-opacity=".55"/>
                   <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
                 </linearGradient></defs>
-                <path d="M0,18 L10,20 L20,24 L30,22 L40,26 L50,28 L60,30 L70,31 L80,29 L90,32 L100,34 L100,40 L0,40 Z" fill="url(#g-ada)"/>
+                <path d="M0,18 L10,20 L20,24 L30,22 L40,26 L50,28 L60,30 L70,31 L80,29 L90,32 L100,34 L100,40 L0,40 Z" fill="url(#g-ada)"></path>
                 <polyline points="0,18 10,20 20,24 30,22 40,26 50,28 60,30 70,31 80,29 90,32 100,34"
-                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent-2)" stroke-width="2" stroke-linecap="round"></polyline>
               </svg>
             </div>
           </div>
@@ -230,7 +238,10 @@
           <header class="coin-head">
             <div class="coin-id">
               <div class="icon doge"><img src="assets/icons/dogecoin.svg" alt="Dogecoin logo"></div>
-              <div><strong>Dogecoin</strong><small class="muted">DOGE</small></div>
+              <div>
+                <h3 class="coin-title" style="margin:0">Dogecoin</h3>
+                <small class="muted">DOGE</small>
+              </div>
             </div>
             <span class="chip up">+1.7%</span>
           </header>
@@ -253,7 +264,10 @@
           <header class="coin-head">
             <div class="coin-id">
               <div class="icon avax"><img src="assets/icons/avalanche.svg" alt="Avalanche logo"></div>
-              <div><strong>Avalanche</strong><small class="muted">AVAX</small></div>
+              <div>
+                <h3 class="coin-title" style="margin:0">Avalanche</h3>
+                <small class="muted">AVAX</small>
+              </div>
             </div>
             <span class="chip up">+2.0%</span>
           </header>
@@ -276,7 +290,10 @@
           <header class="coin-head">
             <div class="coin-id">
               <div class="icon matic"><img src="assets/icons/polygon-matic.svg" alt="Polygon logo"></div>
-              <div><strong>Polygon</strong><small class="muted">MATIC</small></div>
+              <div>
+                <h3 class="coin-title" style="margin:0">Polygon</h3>
+                <small class="muted">MATIC</small>
+              </div>
             </div>
             <span class="chip down">−0.6%</span>
           </header>
@@ -295,7 +312,7 @@
         </article>
       </div>
 
-      <!-- Top movers   -->
+      <!-- Top movers -->
       <div class="movers">
         <div class="mover up">TOP GAINER: SOL +5.8%</div>
         <div class="mover down">TOP LOSER: ADA −1.2%</div>
@@ -303,7 +320,7 @@
       </div>
     </section>
 
-    <!-- HEATMAP  -->
+    <!-- Heatmap -->
     <section id="heatmap" class="container stack">
       <div class="section-title">
         <h2>Heatmap (24h)</h2>
@@ -311,38 +328,38 @@
       </div>
       <div class="heatmap">
         <div class="tile up strong btc">
-          <img src="assets/icons/bitcoin.svg" alt="Bitcoin logo" />
+          <img src="assets/icons/bitcoin.svg" alt="Bitcoin logo">
           <b>BTC</b><span>+3.1%</span>
         </div>
         <div class="tile up med eth">
-          <img src="assets/icons/ethereum.svg" alt="Ethereum logo" />
+          <img src="assets/icons/ethereum.svg" alt="Ethereum logo">
           <b>ETH</b><span>+2.4%</span>
         </div>
         <div class="tile up strong sol">
-          <img src="assets/icons/solana.svg" alt="Solana logo" />
+          <img src="assets/icons/solana.svg" alt="Solana logo">
           <b>SOL</b><span>+5.8%</span>
         </div>
         <div class="tile down mild ada">
-          <img src="assets/icons/cardano.svg" alt="Cardano logo" />
+          <img src="assets/icons/cardano.svg" alt="Cardano logo">
           <b>ADA</b><span>−1.2%</span>
         </div>
         <div class="tile up mild doge">
-          <img src="assets/icons/dogecoin.svg" alt="Dogecoin logo" />
+          <img src="assets/icons/dogecoin.svg" alt="Dogecoin logo">
           <b>DOGE</b><span>+1.7%</span>
         </div>
         <div class="tile up mild avax">
-          <img src="assets/icons/avalanche.svg" alt="Avalanche logo" />
+          <img src="assets/icons/avalanche.svg" alt="Avalanche logo">
           <b>AVAX</b><span>+2.0%</span>
         </div>
         <div class="tile down mild matic">
-          <img src="assets/icons/polygon-matic.svg" alt="Polygon logo" />
+          <img src="assets/icons/polygon-matic.svg" alt="Polygon logo">
           <b>MATIC</b><span>−0.6%</span>
         </div>
       </div>
     </section>
 
-    <!-- WALLET + CREATE -->
-    <section class="container grid">
+    <!-- Wallet + Create (layout wrapper is a div, not a section) -->
+    <div class="container grid">
       <section class="card anchor-offset" id="wallet" aria-labelledby="wallet-title">
         <div class="wallet-head">
           <h2 id="wallet-title">Wallet</h2>
@@ -363,16 +380,14 @@
 
       <section class="card anchor-offset" id="create" aria-labelledby="create-title">
         <h2 id="create-title">Skapa transaktion</h2>
-
-        <!-- button -->
         <form action="#" method="get" novalidate>
           <div class="field">
             <label for="to">Mottagare (adress)</label>
-            <input id="to" name="to" type="text" placeholder="0x…" required />
+            <input id="to" name="to" type="text" placeholder="0x…" required>
           </div>
           <div class="field">
             <label for="amount">Belopp (ETH)</label>
-            <input id="amount" name="amount" type="number" step="0.0001" min="0" placeholder="t.ex. 0.05" required />
+            <input id="amount" name="amount" type="number" step="0.0001" min="0" placeholder="t.ex. 0.05" required>
           </div>
           <div class="field">
             <label for="network">Nätverk</label>
@@ -396,15 +411,15 @@
           </div>
 
           <div class="actions">
-            <button class="btn" type="button" title="Demo (ingen skickning)">Skicka</button>
+            <button class="btn" type="submit" aria-disabled="true" title="Demo">Skicka</button>
             <button class="btn secondary" type="reset">Rensa</button>
           </div>
           <p class="muted" role="note">UI-demo – ingen riktig blockkedja.</p>
         </form>
       </section>
-    </section>
+    </div>
 
-    <!-- TRANSAKTIONER -->
+    <!-- Transactions -->
     <section class="container card anchor-offset" id="transactions" aria-labelledby="tx-title">
       <div class="section-title">
         <h2 id="tx-title">Transaktionshistorik</h2>
@@ -437,7 +452,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="container muted center foot">
       <p>© 2025 Crypto Demo • Kalle Wikström.</p>
       <p><a href="#top" class="chip link">Till toppen ↑</a></p>
