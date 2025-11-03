@@ -8,17 +8,20 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <!-- Hoppa direkt till innehåll med tangentbordet -->
   <a class="skip-link" href="#main">Hoppa till innehåll</a>
 
-  <!-- Top / Nav -->
+  <!-- TOP / NAV -->
   <header>
     <div class="container topbar">
+
+      <!-- Logotyp + namn (vänster) -->
       <a class="brand" href="#top" aria-label="Startsida">
         <span class="logo" aria-hidden="true">Ð</span>
         <span>Crypto Dashboard</span>
       </a>
 
-      <!-- Menyn ligger till höger via CSS (.brand { margin-right:auto }) -->
+      <!-- Meny (höger). Använder ankare som scrollar till sektioner. -->
       <nav aria-label="Huvudnavigation">
         <ul role="list">
           <li><a href="#markets">Markets</a></li>
@@ -33,20 +36,22 @@
 
   <main id="main">
 
-    <!-- Hero -->
+    <!-- HERO (intro-sektion med CTA) -->
     <section id="top" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
           <h1>Få koll på dina krypto-tillgångar</h1>
-          <p class="muted">Futuristisk UI, rena HTML/CSS-grafer och ankarlänkar.</p>
+          <p class="muted">Futuristiskt UI i ren HTML/CSS med demo-data.</p>
           <div class="hero-actions">
             <a class="btn" href="#markets">Utforska Markets</a>
             <a class="btn secondary" href="#create">Skapa transaktion</a>
           </div>
         </div>
 
+        <!-- övre kort  -->
         <div class="hero-cards">
-          <!-- Mini highlight cards (BTC) -->
+
+          <!-- BTC -->
           <article class="mini highlight">
             <div class="mini-head">
               <div class="tag btc">
@@ -69,7 +74,7 @@
             </div>
           </article>
 
-          <!-- Mini highlight cards (ETH) -->
+          <!-- ETH -->
           <article class="mini">
             <div class="mini-head">
               <div class="tag eth">
@@ -95,7 +100,7 @@
       </div>
     </section>
 
-    <!-- Markets -->
+    <!-- MARKETS (flera coins) -->
     <section id="markets" class="container stack">
       <div class="section-title">
         <h2>Markets</h2>
@@ -103,6 +108,7 @@
       </div>
 
       <div class="markets-grid">
+
         <!-- BTC -->
         <article class="coin">
           <header class="coin-head">
@@ -289,7 +295,7 @@
         </article>
       </div>
 
-      <!-- Top movers -->
+      <!-- Top movers   -->
       <div class="movers">
         <div class="mover up">TOP GAINER: SOL +5.8%</div>
         <div class="mover down">TOP LOSER: ADA −1.2%</div>
@@ -297,7 +303,7 @@
       </div>
     </section>
 
-    <!-- Heatmap (FIX: id + rubrik + ikonklasser) -->
+    <!-- HEATMAP  -->
     <section id="heatmap" class="container stack">
       <div class="section-title">
         <h2>Heatmap (24h)</h2>
@@ -335,7 +341,7 @@
       </div>
     </section>
 
-    <!-- Wallet + Create -->
+    <!-- WALLET + CREATE -->
     <section class="container grid">
       <section class="card anchor-offset" id="wallet" aria-labelledby="wallet-title">
         <div class="wallet-head">
@@ -357,6 +363,8 @@
 
       <section class="card anchor-offset" id="create" aria-labelledby="create-title">
         <h2 id="create-title">Skapa transaktion</h2>
+
+        <!-- button -->
         <form action="#" method="get" novalidate>
           <div class="field">
             <label for="to">Mottagare (adress)</label>
@@ -388,7 +396,7 @@
           </div>
 
           <div class="actions">
-            <button class="btn" type="submit" aria-disabled="true" title="Demo">Skicka</button>
+            <button class="btn" type="button" title="Demo (ingen skickning)">Skicka</button>
             <button class="btn secondary" type="reset">Rensa</button>
           </div>
           <p class="muted" role="note">UI-demo – ingen riktig blockkedja.</p>
@@ -396,7 +404,7 @@
       </section>
     </section>
 
-    <!-- Transactions -->
+    <!-- TRANSAKTIONER -->
     <section class="container card anchor-offset" id="transactions" aria-labelledby="tx-title">
       <div class="section-title">
         <h2 id="tx-title">Transaktionshistorik</h2>
@@ -429,6 +437,7 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="container muted center foot">
       <p>© 2025 Crypto Demo • Kalle Wikström.</p>
       <p><a href="#top" class="chip link">Till toppen ↑</a></p>

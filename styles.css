@@ -1,5 +1,5 @@
 /* =============================
-   styles.css – Futuristisk stil
+   styles.css 
    ============================= */
 
 :root{
@@ -9,8 +9,8 @@
   --text:#e6edf7;
   --muted:#a5b1c7;
   --border:#273246;
-  --accent:#8b5cf6;   /* neonlila */
-  --accent-2:#22d3ee; /* cyan */
+  --accent:#8b5cf6;   
+  --accent-2:#22d3ee; 
   --ok:#22c55e;
   --warn:#f59e0b;
   --danger:#ef4444;
@@ -21,6 +21,7 @@
   --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
+
 /* Light mode */
 @media (prefers-color-scheme: light){
   :root{
@@ -54,13 +55,13 @@ header{
 }
 .topbar{
   display: flex; align-items: center; gap: 1rem;
-  padding: 0.55rem 1rem; /* lägre på desktop */
+  padding: 0.55rem 1rem;
   justify-content: flex-start;
 }
 .brand{
   display:flex; align-items:center; gap:.75rem;
   font-weight:800; letter-spacing:.2px;
-  margin-right: auto; /* <— FIX: tog bort felaktigt snedstreck */
+  margin-right: auto; /* trycker menyn till höger */
 }
 .logo{
   width:38px; height:38px; border-radius:12px;
@@ -94,12 +95,12 @@ nav a:focus-visible{outline:none; box-shadow:var(--ring)}
 
 /* Mobil: större klickytor & mer luft */
 @media (max-width: 600px){
-  .topbar{ padding: 0.95rem 1rem; } /* högre på mobil */
+  .topbar{ padding: 0.95rem 1rem; }
   nav ul{ gap: 0.95rem; row-gap: 0.7rem; justify-content: flex-end; }
   nav a{ padding: 0.75rem 1.05rem; min-height: 44px; font-size: 1rem; }
 }
 
-/* Hero/startsidans */
+/* HERO */
 .hero{position:relative; overflow:hidden; padding: clamp(2rem, 5vw, 3.5rem) 0}
 .hero::before{
   content:""; position:absolute; inset:-20% -10% auto -10%; height:60%;
@@ -122,7 +123,7 @@ nav a:focus-visible{outline:none; box-shadow:var(--ring)}
 .mini.highlight{outline:2px solid color-mix(in oklab, var(--accent), transparent 50%)}
 .mini-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:.25rem}
 
-/* Taggar med ikon + kod */
+/* Tag (ticker + liten ikon) */
 .tag{
   display:inline-flex; align-items:center; gap:.4rem;
   padding:0 .6rem; height:28px; border-radius:999px; font-weight:800;
@@ -134,12 +135,12 @@ nav a:focus-visible{outline:none; box-shadow:var(--ring)}
 .sparkline-wrap{margin-top:.3rem; background:var(--panel-2); border:1px solid var(--border); border-radius:10px; padding:.35rem}
 .sparkline-wrap svg{width:100%; height:42px}
 
-/* Section title */
+/* Sektionstitel */
 .section-title{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:1rem auto .5rem; padding:0 1rem; max-width:var(--content-max)}
 .chip{background:var(--panel-2); border:1px solid var(--border); padding:.25rem .6rem; border-radius:999px; font-size:.85rem}
 .chip.up{color:var(--ok)} .chip.down{color:var(--danger)}
 
-/* Markets grid */
+/* MARKETS grid */
 .markets-grid{display:grid; gap:1rem; grid-template-columns:1fr; padding:0 1rem; max-width:var(--content-max); margin:0 auto}
 @media(min-width:680px){ .markets-grid{ grid-template-columns:1fr 1fr; } }
 @media(min-width:1180px){ .markets-grid{ grid-template-columns:1fr 1fr 1fr; } }
@@ -166,17 +167,17 @@ nav a:focus-visible{outline:none; box-shadow:var(--ring)}
 .coin-foot{display:flex; gap:.5rem; padding:.75rem 1rem 1rem}
 .pill{font-size:.85rem; padding:.25rem .55rem; border-radius:999px; background:var(--panel-2); border:1px solid var(--border)}
 
-/* Bars (mini) */
+/* Små stapeldiagram utan JS */
 .bars-mini{display:flex; gap:6px; align-items:flex-end; height:46px; margin-top:.5rem}
 .bars-mini span{flex:1; display:block; background: linear-gradient(180deg, color-mix(in oklab, var(--accent), var(--accent-2) 40%), var(--accent)); border-radius:6px 6px 0 0; opacity:.9}
 
-/* Movers */
+/* MOVERS */
 .movers{display:grid; grid-template-columns:1fr; gap:.5rem; padding:1rem}
 @media(min-width:680px){ .movers{ grid-template-columns:1fr 1fr 1fr; } }
 .mover{background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:.55rem .9rem; text-align:center; font-weight:700}
 .mover.up{color:var(--ok)} .mover.down{color:var(--danger)}
 
-/* Heatmap */
+/* HEATMAP */
 .heatmap{display:grid; grid-template-columns:repeat(2, 1fr); gap:.6rem; padding:0 1rem; max-width:var(--content-max); margin:0 auto 1rem}
 @media(min-width:680px){ .heatmap{ grid-template-columns:repeat(4, 1fr);} }
 @media(min-width:1024px){ .heatmap{ grid-template-columns:repeat(7, 1fr);} }
@@ -194,10 +195,10 @@ nav a:focus-visible{outline:none; box-shadow:var(--ring)}
 .tile.up.med{background:linear-gradient(135deg, rgba(34,197,94,.28), rgba(34,211,238,.28))}
 .tile.up.strong{background:linear-gradient(135deg, rgba(34,197,94,.40), rgba(34,211,238,.40))}
 .tile.down.mild{background:linear-gradient(135deg, rgba(239,68,68,.18), rgba(245,158,11,.18))}
-.tile.down.med{background:linear-gradient(135deg, rgba(239,68,68,.28), rgba(245,158,11,.28))}
+tile.down.med{background:linear-gradient(135deg, rgba(239,68,68,.28), rgba(245,158,11,.28))} /* stavning check */
 .tile.down.strong{background:linear-gradient(135deg, rgba(239,68,68,.40), rgba(245,158,11,.40))}
 
-/* Coin-specific glow for heatmap icons */
+/* Extra glow per coin i heatmapen */
 .tile.btc img { filter: drop-shadow(0 0 6px #f7931a); }
 .tile.eth img { filter: drop-shadow(0 0 6px #29b6f6); }
 .tile.sol img { filter: drop-shadow(0 0 6px #9b59ff); }
@@ -206,7 +207,7 @@ nav a:focus-visible{outline:none; box-shadow:var(--ring)}
 .tile.avax img { filter: drop-shadow(0 0 6px #e84142); }
 .tile.matic img { filter: drop-shadow(0 0 6px #8b5cf6); }
 
-/* Wallet + Create grid */
+/* WALLET + CREATE */
 .grid{display:grid; gap:1rem; margin: 1rem auto 2rem; max-width:var(--content-max); padding:0 1rem; grid-template-columns:1fr}
 @media(min-width:900px){ .grid{ grid-template-columns:1.2fr .8fr; } }
 .card{background:var(--panel); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding: clamp(1rem, 2vw, 1.5rem)}
@@ -221,7 +222,7 @@ nav a:focus-visible{outline:none; box-shadow:var(--ring)}
 .kpi b{font-size:1.05rem}
 .up{color:var(--ok)} .down{color:var(--danger)}
 
-/* Form */
+/* FORM */
 form{display:grid; gap:.9rem}
 .field{display:grid; gap:.4rem}
 label{font-weight:700}
@@ -236,7 +237,7 @@ input::placeholder{color:var(--muted)}
 .btn:hover{transform:translateY(-1px); filter:brightness(1.05)}
 .btn.secondary{background:var(--panel); color:var(--text)}
 
-/* Table */
+/* TABELL */
 .table-wrap{overflow:auto; border:1px solid var(--border); border-radius:12px}
 table{width:100%; border-collapse:collapse; min-width:680px}
 thead th{text-align:left; font-weight:800; padding:.9rem; background:var(--panel-2); position:sticky; top:0}
@@ -247,9 +248,9 @@ tbody tr:hover{background: color-mix(in oklab, var(--panel-2), white 3%); transf
 .chip.warn{background:var(--warn); color:#111; border-color:transparent}
 .chip.danger{background:var(--danger); color:#fff; border-color:transparent}
 
-/* Footer */
+/* FOOTER */
 .foot{padding:1.5rem 1rem}
 
-/* Skip link */
+/* SKIP-LÄNK */
 .skip-link{position:absolute; left:-9999px}
 .skip-link:focus{left:1rem; top:1rem; background:var(--accent); color:#fff; padding:.5rem .75rem; border-radius:8px; z-index:100}
