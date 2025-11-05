@@ -57,7 +57,7 @@ Lägg skärmbilder i `pictures/` och uppdatera länkarna nedan.
 - Synliga `:focus`-markeringar + **skip-länk**
 - Jag kör en snabb granskning i Lighthouse/axe och sparar rapportbild här:
 
-![Accessibility](pictures/accessibility-symbol-svgrepo-com.svg)
+![Accessibility](pictures/accessibility-report.png)
 
 ---
 
