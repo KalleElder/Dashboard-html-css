@@ -19,8 +19,10 @@
   --font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
-/* Tema overrides */
-:root[data-theme="dark"]{}
+/* Tema  */
+:root[data-theme="dark"]{
+  --theme: dark;
+}
 :root[data-theme="light"]{
   --bg:#f7f9ff; --panel:#fff; --panel-2:#eef2ff; --text:#0e1320; --muted:#4b5568;
   --border:#d7e0f1; --shadow:0 1px 1px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.10);
