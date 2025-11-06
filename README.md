@@ -1,13 +1,12 @@
-# Dashboard-html-css
-**Utbildningsuppgift 2 — Crypto dApp Dashboard (HTML + CSS)**
+# **Utbildningsuppgift 2 — Crypto Dashboard (HTML + CSS)**
 
-Det här är min responsiva krypto dashboard byggd i **ren HTML och CSS** .
-Jag använder demo data, ankarlänkar och stöd för **mörkt/ljust läge**.
+Det här är min **responsiva krypto-dashboard** byggd i **ren HTML och CSS**.  
+Jag använder demo-data, ankarlänkar och stöd för **mörkt/ljust läge**.
 
 ---
 
-## Vad som finns
-- Meny med ankare: **Markets, Heatmap, Wallet, Transactions, Create**
+## **Vad som finns**
+- Meny med ankare: **Markets**, **Heatmap**, **Wallet**, **Transactions**, **Create**
 - **Markets:** flera coins (BTC, ETH, SOL, ADA, DOGE, AVAX, MATIC) med mini-grafer (linje/staplar)
 - **Heatmap:** färgplattor som visar 24h-förändring + logotyper
 - **Wallet:** saldo, adress och nyckeltal
@@ -16,25 +15,23 @@ Jag använder demo data, ankarlänkar och stöd för **mörkt/ljust läge**.
 
 ---
 
-## Kör projektet
+## **Kör projektet**
 Öppna `index.html` i valfri webbläsare.  
-Tips: Jag testar responsivitet och mörkt/ljust läge i **DevTools**.  
-
+Tips: Jag testar responsivitet och mörkt/ljust läge i **DevTools**.
 
 ---
 
-## Struktur
+## **Struktur**
 /projekt
-- index.html
-- styles.css
-- assets/
-- icons/ (SVG-logotyper för coins)
-
-
+├── index.html
+├── styles.css
+├── assets/
+│ └── icons/ (SVG-logotyper för coins)
+└── pictures/ (Bilderna)
 
 ---
 
-## Checklista
+## **Checklista**
 - Responsiv (mobil, tablet, desktop + stora skärmar)
 - Ankarnavigation
 - Wallet + transaktionstabell + formulär
@@ -43,16 +40,16 @@ Tips: Jag testar responsivitet och mörkt/ljust läge i **DevTools**.
 
 ---
 
-## Skärmdumpar
+## **Skärmdumpar**
 Lägg skärmbilder i `pictures/` och uppdatera länkarna nedan.
 
-![Mobil](pictures/Phone.png)
-![Desktop](pictures/Desktop.png)
+![Mobil](pictures/Phone.png)  
+![Desktop](pictures/Desktop.png)  
 ![Heatmap](pictures/Heatmap.png)
 
 ---
 
-## Tillgänglighet
+## **Tillgänglighet**
 - Semantiska element (`header`, `main`, `nav`, `section`)
 - Synliga `:focus`-markeringar + **skip-länk**
 - Jag kör en snabb granskning i Lighthouse/axe och sparar rapportbild här:
@@ -61,5 +58,5 @@ Lägg skärmbilder i `pictures/` och uppdatera länkarna nedan.
 
 ---
 
-## Notering
-Detta är en **UI-demo** 
+## **Notering**
+Detta är en **UI-demo**.

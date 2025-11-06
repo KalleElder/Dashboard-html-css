@@ -1,13 +1,13 @@
 /* ============================= styles.css ============================= */
 :root{
-  --bg:#0b0e13;            /* rgb(11,14,19) */
-  --panel:#121722;         /* rgb(18,23,34) */
-  --panel-2:#171c29;       /* rgb(23,28,41) */
+  --bg:#0b0e13;
+  --panel:#121722;
+  --panel-2:#171c29;
   --text:#e6edf7;
   --muted:#a5b1c7;
   --border:#273246;
-  --accent:#8b5cf6;        /* rgb(139,92,246) */
-  --accent-2:#22d3ee;      /* rgb(34,211,238) */
+  --accent:#8b5cf6;
+  --accent-2:#22d3ee;
   --ok:#22c55e;
   --warn:#f59e0b;
   --danger:#ef4444;
@@ -19,10 +19,8 @@
   --font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
-/* Tema  */
-:root[data-theme="dark"]{
-  --theme: dark;
-}
+/* Tema */
+:root[data-theme="dark"]{ --theme: dark; }
 :root[data-theme="light"]{
   --bg:#f7f9ff; --panel:#fff; --panel-2:#eef2ff; --text:#0e1320; --muted:#4b5568;
   --border:#d7e0f1; --shadow:0 1px 1px rgba(0,0,0,.04), 0 12px 28px rgba(0,0,0,.10);
@@ -36,7 +34,7 @@
   }
 }
 
-/* Base */
+/* Bas */
 html,body{height:100%}
 body{
   margin:0; font-family:var(--font-sans);
@@ -49,6 +47,7 @@ body{
 .container{max-width:var(--content-max); margin-inline:auto; padding:1rem clamp(1rem,2vw,2rem)}
 .center{text-align:center}
 .stack{display:grid; gap:1rem}
+.anchor-offset{scroll-margin-top:84px}
 
 /* ============================ Header / nav ============================ */
 header{
@@ -58,11 +57,14 @@ header{
   background:rgba(11,14,19,.65);
 }
 .topbar{display:flex; align-items:center; gap:1rem; padding:.55rem 1rem; justify-content:flex-start}
-.brand{display:flex; align-items:center; gap:.75rem; font-weight:800; letter-spacing:.2px; margin-right:auto}
+.brand{display:flex; align-items:center; gap:.75rem; font-weight:800; letter-spacing:.2px; margin-right:auto; text-decoration:none; color:var(--text)}
+.brand:visited{color:var(--text)}
 .logo{
   width:38px; height:38px; border-radius:12px; display:grid; place-items:center; color:#fff; font-weight:900;
   background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:var(--shadow);
 }
+
+/* Nav – desktop */
 .topbar>nav{margin-left:auto}
 nav ul{list-style:none; display:flex; gap:1rem; row-gap:.6rem; margin:0; padding:0; flex-wrap:wrap; justify-content:flex-end}
 nav a{
@@ -88,87 +90,40 @@ nav a:focus-visible{ outline:none; box-shadow:var(--ring) }
 .theme-toggle:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.28) }
 .theme-toggle:focus-visible{ outline:none; box-shadow:var(--ring), 0 6px 18px rgba(0,0,0,.28) }
 
-/* ========== CSS-ONLY HAMBURGER / OFF-CANVAS (grund) ========== */
-/* Dölj checkboxen */
-.nav-toggle{ position:absolute; opacity:0; pointer-events:none }
-
-/* Knapp + ikon */
-.menu-toggle{
-  display:none; background:transparent; border:none; cursor:pointer; z-index:1002;
-}
-.hamburger{ position:relative; width:28px; height:20px; display:inline-block }
-.bar{
-  position:absolute; left:0; right:0; height:3px; background:var(--text); border-radius:2px;
-  transition:transform .25s ease, opacity .25s ease, top .25s ease, bottom .25s ease;
-}
-.bar1{top:0} .bar2{top:8px} .bar3{bottom:0}
-#nav-toggle:checked + .menu-toggle .bar1{ transform:rotate(45deg); top:8px }
-#nav-toggle:checked + .menu-toggle .bar2{ opacity:0 }
-#nav-toggle:checked + .menu-toggle .bar3{ transform:rotate(-45deg); bottom:8px }
-
-/* Off-canvas doldt läge */
-#side-menu{
-  position:fixed; top:0; right:0; width:min(82vw,280px); height:100vh;
-  background:var(--panel); border-left:1px solid var(--border);
-  box-shadow:-2px 0 24px rgba(0,0,0,.45);
-
-  /* FIX: ta bort env() som validatorn inte klarar */
-  padding:18px;
-  padding-top:calc(16px + 64px);
-
-  display:flex; flex-direction:column; gap:1rem;
-  transform:translateX(100%); transition:transform .30s ease; z-index:2200;
-}
-#side-menu ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1rem; max-height:calc(100vh - 64px - 96px); overflow:auto }
-#side-menu a{
-  text-decoration:none; color:var(--text); font-weight:700;
-  background:var(--panel-2); border:1px solid var(--border);
-  padding:.75rem 1rem; border-radius:12px; transition:background .2s, transform .2s;
-}
-#side-menu a:hover{ background:var(--panel); transform:translateX(4px) }
-
-/* Öppna menyn via checkbox */
-#nav-toggle:checked ~ #side-menu{ transform:translateX(0) }
-
-/* Overlay */
-.menu-overlay{
-  position:fixed; inset:0; opacity:0; visibility:hidden;
-  background:rgba(6,8,12,.55); backdrop-filter:blur(5px) saturate(110%);
-  transition:opacity .25s ease, visibility .25s ease; z-index:1500;
-}
-#nav-toggle:checked ~ .menu-overlay{ opacity:1; visibility:visible }
-
-/* Scroll-lås när menyn är öppen (moderna browsers) */
-html:has(#nav-toggle:checked){ overflow:hidden }
-
-/* Visa hamburgaren på mobil, göm desktop-menyn om du väljer off-canvas */
+/* Nav – mobil (ligger under loggan) */
 @media (max-width:900px){
-  .menu-toggle{ display:inline-flex; align-items:center; justify-content:center }
-  .topbar > nav{ display:none } /* döljer horisontell meny */
-}
-/* Desktop: off-canvas blir vanlig nav igen */
-@media (min-width:901px){
-  .menu-toggle{ display:none }
-  .menu-overlay{ display:none !important }
-  #side-menu{ position:static; height:auto; width:auto; transform:none; padding:0; background:transparent; border:0; box-shadow:none }
-  #side-menu ul{ flex-direction:row; gap:1rem; max-height:none; overflow:visible }
-  #side-menu a{ background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:.50rem .90rem; min-height:38px }
-  #side-menu a:hover{ background:var(--panel-2); transform:none; box-shadow:0 0 0 2px rgba(139,92,246,.40) }
-  #side-menu{ margin-left:auto }
+  .topbar{
+    flex-wrap:wrap;
+    align-items:center;
+    gap:.6rem;
+    padding:.5rem .75rem;
+    padding-right:64px; /* plats för tema-knappen */
+  }
+  .topbar>nav{ width:100%; }
+  nav ul{
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    gap:.4rem;
+    row-gap:.35rem;
+  }
+  nav a{
+    padding:.42rem .70rem;
+    min-height:34px;
+    border-radius:18px;
+    font-size:.90rem;
+  }
+  .theme-toggle{ top:8px; right:10px; width:38px; height:38px; }
 }
 
-/* ====== Mobil-topbar polish (utan att krocka med off-canvas) ====== */
-@media (max-width:600px){
-  .topbar{ padding:.35rem .6rem; gap:.5rem; flex-wrap:wrap; align-items:center }
-  .brand{ font-size:.95rem; gap:.5rem; margin-right:0 }
-  .logo{ width:32px; height:32px; border-radius:10px; font-size:.9rem }
-  .theme-toggle{ top:8px; right:10px; width:38px; height:38px; font-size:1rem }
-  .topbar{ padding-top:10px }
-}
+/* Mindre mobiler */
 @media (max-width:480px){
-  .topbar{ flex-direction:column; align-items:flex-start; gap:.4rem; padding:.3rem .5rem }
-  .brand{ font-size:.92rem } .logo{ width:30px; height:30px }
-  .theme-toggle{ top:6px; right:8px; width:34px; height:34px; font-size:.95rem }
+  nav ul{ gap:.3rem; row-gap:.3rem; }
+  nav a{
+    padding:.38rem .62rem;
+    font-size:.88rem;
+    min-height:30px;
+    border-radius:16px;
+  }
 }
 
 /* ============================ HERO ============================ */
@@ -196,12 +151,16 @@ html:has(#nav-toggle:checked){ overflow:hidden }
 .sparkline-wrap{margin-top:.3rem; background:var(--panel-2); border:1px solid var(--border); border-radius:10px; padding:.35rem}
 .sparkline-wrap svg{width:100%; height:42px}
 
+/* Titlar utan inline-stil */
+.card-title{margin:0 0 .25rem 0}
+.coin-title{margin:0}
+
 /* Sektionstitel */
 .section-title{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:1rem auto .5rem; padding:0 1rem; max-width:var(--content-max)}
 .chip{background:var(--panel-2); border:1px solid var(--border); padding:.25rem .6rem; border-radius:999px; font-size:.85rem}
 .chip.up{color:var(--ok)} .chip.down{color:var(--danger)}
 
-/* MARKETS grid */
+/* MARKETS */
 .markets-grid{display:grid; gap:1rem; grid-template-columns:1fr; padding:0 1rem; max-width:var(--content-max); margin:0 auto}
 @media(min-width:680px){ .markets-grid{ grid-template-columns:1fr 1fr } }
 @media(min-width:1180px){ .markets-grid{ grid-template-columns:1fr 1fr 1fr } }
@@ -218,7 +177,7 @@ html:has(#nav-toggle:checked){ overflow:hidden }
 .coin-foot{display:flex; gap:.5rem; padding:.75rem 1rem 1rem}
 .pill{font-size:.85rem; padding:.25rem .55rem; border-radius:999px; background:var(--panel-2); border:1px solid var(--border)}
 
-/* Små stapeldiagram utan JS */
+/* Små stapeldiagram */
 .bars-mini{display:flex; gap:6px; align-items:flex-end; height:46px; margin-top:.5rem}
 .bars-mini span{ flex:1; display:block; background:linear-gradient(180deg, rgba(34,211,238,.80), var(--accent)); border-radius:6px 6px 0 0; opacity:.9 }
 
@@ -242,12 +201,12 @@ html:has(#nav-toggle:checked){ overflow:hidden }
 .tile b{font-size:1rem} .tile span{font-size:.9rem}
 .tile.up.mild{background:linear-gradient(135deg, rgba(34,197,94,.18), rgba(34,211,238,.18))}
 .tile.up.med{background:linear-gradient(135deg, rgba(34,197,94,.28), rgba(34,211,238,.28))}
-tile.up.strong{background:linear-gradient(135deg, rgba(34,197,94,.40), rgba(34,211,238,.40))}
+.tile.up.strong{background:linear-gradient(135deg, rgba(34,197,94,.40), rgba(34,211,238,.40))}
 .tile.down.mild{background:linear-gradient(135deg, rgba(239,68,68,.18), rgba(245,158,11,.18))}
 .tile.down.med{background:linear-gradient(135deg, rgba(239,68,68,.28), rgba(245,158,11,.28))}
 .tile.down.strong{background:linear-gradient(135deg, rgba(239,68,68,.40), rgba(245,158,11,.40))}
 
-/* WALLET + CREATE */
+/* Wallet + Create */
 .grid{display:grid; gap:1rem; margin:1rem auto 2rem; max-width:var(--content-max); padding:0 1rem; grid-template-columns:1fr}
 @media(min-width:900px){ .grid{ grid-template-columns:1.2fr .8fr } }
 .card{background:var(--panel); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:clamp(1rem,2vw,1.5rem)}
@@ -264,7 +223,7 @@ tile.up.strong{background:linear-gradient(135deg, rgba(34,197,94,.40), rgba(34,2
 .kpi b{font-size:1.05rem}
 .up{color:var(--ok)} .down{color:var(--danger)}
 
-/* FORM */
+/* Formulär */
 form{display:grid; gap:.9rem}
 .field{display:grid; gap:.4rem}
 label{font-weight:700}
@@ -278,7 +237,7 @@ input::placeholder{color:var(--muted)}
 .btn:hover{transform:translateY(-1px); filter:brightness(1.05)}
 .btn.secondary{background:var(--panel); color:var(--text)}
 
-/* TABELL */
+/* Tabell */
 .table-wrap{overflow:auto; border:1px solid var(--border); border-radius:12px}
 table{width:100%; border-collapse:collapse; min-width:680px}
 thead th{text-align:left; font-weight:800; padding:.9rem; background:var(--panel-2); position:sticky; top:0}
@@ -289,21 +248,17 @@ tbody tr:hover{background:rgba(255,255,255,.05); transform:translateY(-1px)}
 .chip.warn{background:var(--warn); color:#111; border-color:transparent}
 .chip.danger{background:var(--danger); color:#fff; border-color:transparent}
 
-/* FOOTER */
+/* Footer */
 .foot{padding:1.5rem 1rem}
 
-/* SKIP-LÄNK */
+/* Skip-länk */
 .skip-link{position:absolute; left:-9999px}
 .skip-link:focus{left:1rem; top:1rem; background:var(--accent); color:#fff; padding:.5rem .75rem; border-radius:8px; z-index:100}
 
-/* =================== NAV — kompakt & alltid synlig =================== */
-/* Grund (desktop) */
-nav ul{
-  gap:.5rem;                 /* tätare mellan knappar */
-  row-gap:.4rem;
-}
+/* Kompakt nav */
+nav ul{ gap:.5rem; row-gap:.4rem; }
 nav a{
-  padding:.45rem .80rem;     /* mindre höjd/bredd */
+  padding:.45rem .80rem;
   min-height:34px;
   font-size:.92rem;
   border-radius:999px;
@@ -314,36 +269,4 @@ nav a:hover{
   background:var(--panel-2);
   box-shadow:0 0 0 2px rgba(139,92,246,.35);
   transform:translateY(-1px);
-}
-
-/* Mobil: visa horisontell meny, göm hamburgaren */
-@media (max-width:900px){
-  .menu-toggle{ display:none !important; }
-  .topbar > nav{ display:block !important; width:100%; }
-
-  nav ul{
-    justify-content:flex-start;
-    flex-wrap:wrap;
-    gap:.4rem;               /* ännu lite tätare */
-    row-gap:.35rem;
-  }
-  nav a{
-    padding:.42rem .70rem;
-    font-size:.90rem;
-    min-height:32px;
-    border-radius:18px;
-    background:var(--panel);
-    border:1px solid var(--border);
-  }
-}
-
-/* Extra kompakt på väldigt små skärmar */
-@media (max-width:480px){
-  nav ul{ gap:.3rem; row-gap:.3rem; }
-  nav a{
-    padding:.38rem .62rem;
-    font-size:.88rem;
-    min-height:30px;
-    border-radius:16px;
-  }
 }
