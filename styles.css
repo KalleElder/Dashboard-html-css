@@ -49,6 +49,9 @@ body{
 .stack{display:grid; gap:1rem}
 .anchor-offset{scroll-margin-top:84px}
 
+/* === CLS-fix för bilder (behåller proportioner) === */
+img[width][height]{ height:auto; display:block; }
+
 /* ============================ Header / nav ============================ */
 header{
   position:sticky; top:0; z-index:60;
